@@ -1,6 +1,7 @@
 # coding: utf-8
 import hashlib, hmac
 import urllib
+import time
 
 def payload(verb, path, params):
     # url params should to sorted in alphabet
@@ -17,7 +18,7 @@ class Auth:
         self.secret_key = secret_key
 
     def signed_params(self, verb, path, params):
-        params = dict(params)
+        params = params.copy()
         params = self._format_params(params)
         signature = self.sign(verb, path, params)
         params["signature"] = signature
