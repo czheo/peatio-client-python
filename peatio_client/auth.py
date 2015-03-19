@@ -7,7 +7,7 @@ except:
 import time
 
 def payload(verb, path, params):
-    # url params should to sorted in alphabet
+    # url params should be sorted in alphabet
     url_params = urlencode(sorted(params.items()))
     return "{verb}|{path}|{url_params}".format(
         verb = verb.upper(),

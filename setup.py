@@ -6,11 +6,11 @@ def readme():
 
 setup(
     name = "peatio_client",
-    version = "0.0.1",
+    version = "0.0.2",
     description = "a client library to the bitcoin exchange Peatio",
     long_description = readme(),
     author = "czheo",
-    license = "GNU",
+    license = "LGPL",
     keywords = "bitcoin peatio yunbi.com",
     test_suite = "tests",
     packages = [
