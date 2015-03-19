@@ -1,10 +1,18 @@
 language: python
 python:
-    - "2.6"
-    - "2.7"
-    - "3.2"
-    - "3.3"
-    - "3.4"
-    - "nightly"
-install: "pip install -r requirements.txt"
-script: "python setup.py test"
+- '2.6'
+- '2.7'
+- '3.2'
+- '3.3'
+- '3.4'
+- nightly
+install: pip install -r requirements.txt
+script: python setup.py test
+deploy:
+  provider: pypi
+  user: czheo
+  password:
+    secure: RgUoPeublwcdvw54Vk4YanWfwiIeg3I2y+K+VXp7O4o7R97N/gnRNwLfrcSoPKaPpiNCM94i4DssHHp5nIU5PX+FnNFvKDzxoWb9BX2pEG9cCO4ZTjUlinPhEd6NFmaZoekxCcga/pMKVwdsohU8QpNHKYhpgyRC9mEQ2dv0Ct4=
+  on:
+    tags: true
+    repo: czheo/peatio-client-python
