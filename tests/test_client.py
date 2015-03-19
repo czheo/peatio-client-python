@@ -1,8 +1,8 @@
 # coding:utf-8
-import unittest
+import unittest2
 from peatio_client import Client, ClientError
 
-class ClientTestCase(unittest.TestCase):
+class ClientTestCase(unittest2.TestCase):
     def test_access_private_apis_without_keys(self):
         with self.assertRaises(ClientError):
             client = Client().post("")

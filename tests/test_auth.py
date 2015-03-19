@@ -1,8 +1,8 @@
 # coding:utf-8
-import unittest
+import unittest2
 from peatio_client import auth
 
-class AuthTestCase(unittest.TestCase):
+class AuthTestCase(unittest2.TestCase):
     def setUp(self):
         self.auth = auth.Auth(
             access_key = "accesskey",

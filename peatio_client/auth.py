@@ -1,11 +1,14 @@
 # coding: utf-8
 import hashlib, hmac
-import urllib
+try:
+    from urllib import urlencode
+except:
+    from urllib.parse import urlencode
 import time
 
 def payload(verb, path, params):
     # url params should to sorted in alphabet
-    url_params = urllib.urlencode(sorted(params.items()))
+    url_params = urlencode(sorted(params.items()))
     return "{verb}|{path}|{url_params}".format(
         verb = verb.upper(),
         path = path,
@@ -25,7 +28,7 @@ class Auth:
         return params
 
     def sign(self, verb, path, params):
-        return hmac.new(self.secret_key, payload(verb, path, params), hashlib.sha256).hexdigest() 
+        return hmac.new(self.secret_key.encode(), payload(verb, path, params).encode(), hashlib.sha256).hexdigest() 
 
     def _format_params(self, params):
         if not params.get("access_key"):
