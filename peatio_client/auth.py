@@ -20,6 +20,16 @@ class Auth:
         self.access_key = access_key
         self.secret_key = secret_key
 
+    def signed_challenge(self, challenge):
+        payload = "%s%s" % (self.access_key, challenge)
+        signature = hmac.new(self.secret_key.encode(), payload.encode(), hashlib.sha256).hexdigest()
+        return {
+            "auth": {
+                "access_key": self.access_key,
+                "answer": signature
+            }
+        }
+
     def signed_params(self, verb, path, params):
         params = params.copy()
         params = self._format_params(params)

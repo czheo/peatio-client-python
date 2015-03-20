@@ -9,6 +9,22 @@ class AuthTestCase(unittest2.TestCase):
             secret_key = "secretkey"
         )
 
+    def test_signed_challenge(self):
+        access_key = "abc"
+        challenge = "def"
+        secret_key = "ghi"
+        a = auth.Auth(
+            access_key = access_key,
+            secret_key = secret_key
+        )
+        signature = a.signed_challenge(challenge)
+        self.assertEqual(signature, {
+            "auth": {
+                "access_key": access_key,
+                "answer": "52ca0e5beab532532c62155e78d81c7dc8ad6d6f744cf3797668cf52dd2f9a41",
+            }
+        })
+
     def test_signed_params(self):
         params = self.auth.signed_params(
             "GET", "/api/v2/orders", params={
