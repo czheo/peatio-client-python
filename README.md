@@ -10,8 +10,8 @@ pip install peatio_client
 ```
 
 # Usage
-Rest API Client: https://github.com/czheo/peatio-client-python/blob/master/client_sample.py
-Streaming API Client: https://github.com/czheo/peatio-client-python/blob/master/streaming_client_sample.py
+- Rest API Client: https://github.com/czheo/peatio-client-python/blob/master/client_sample.py
+- Streaming API Client: https://github.com/czheo/peatio-client-python/blob/master/streaming_client_sample.py
 
 # Licence
 LGPL
