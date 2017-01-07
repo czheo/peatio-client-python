@@ -6,8 +6,9 @@ def readme():
 
 setup(
     name = "peatio_client",
-    version = "0.1.0",
-    description = "a client library to the bitcoin exchange Peatio",
+    version = "0.1.1",
+    description = "a client library for the bitcoin exchange Peatio",
+    url = 'https://github.com/czheo/peatio-client-python',
     long_description = readme(),
     author = "czheo",
     license = "LGPL",
